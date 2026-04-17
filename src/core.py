@@ -26,16 +26,16 @@ def covariance_matrix(data):
     return cov_matrix
 
 
-def corelation_matrix(data):
-    """Calculate the correlation matrix of a list of lists of numbers.
+# def corelation_matrix(data):
+#     """Calculate the correlation matrix of a list of lists of numbers.
 
-    Args:
-        data (list): A list of lists of numbers.
-    Returns:
-        list: A correlation matrix as a list of lists.
-    """
+#     Args:
+#         data (list): A list of lists of numbers.
+#     Returns:
+#         list: A correlation matrix as a list of lists.
+#     """
 
-    cov_matrix = covariance_matrix(data)
+#     cov_matrix = covariance_matrix(data)
 
 
 data = [
