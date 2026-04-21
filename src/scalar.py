@@ -33,7 +33,7 @@ class StandardScaler:
 
         for i, col in enumerate(cols):
             scaled_col = [
-                (x - self.means[i]) / self.stds[i] if self.stds[i] != 0 else 0
+                (x - self.means[i]) / self.stds[i] if self.stds[i] >1e-9 else 0.0
                 for x in col
             ]
             scaled.append(scaled_col)
@@ -43,3 +43,14 @@ class StandardScaler:
     def fit_transform(self, data: Matrix) -> Matrix:
         self.fit(data)
         return self.transform(data)
+    
+    def inverse_transform_scaled(self, data: Matrix) -> Matrix:
+        cols = list(zip(*data.data))
+
+        original = []
+
+        for i, col in enumerate(cols):
+            original_col = [x * self.stds[i] + self.means[i] for x in col]
+            original.append(original_col)
+
+        return Matrix(list(zip(*original)))

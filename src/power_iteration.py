@@ -30,11 +30,10 @@ class PowerIteration:
             if sum(abs(v_new[i] - v_old[i]) for i in range(n)) < tol:
                 v = self._to_matrix(v_new)
                 break
+            
             v = self._to_matrix(v_new)
 
         AV = matrix @ v
-        v_T = v.transpose()
-        eigen_value = (v_T @ AV).data[0][0]
         AV_list = self._to_vector(AV)
         v_list = self._to_vector(v)
 
